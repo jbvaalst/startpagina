@@ -1,5 +1,10 @@
 const url = 'https://wttr.in/de bilt?format=+%c+%t 💧 %p %w';
 
+
+  // Unsplash API
+  const apiKey = 'qiGAYz8dmr3ETMNXP7OzpT5PRXd0B1QUWpX0qhOsKR4';
+  let apiUrl = `https://api.unsplash.com/photos/random?client_id=${apiKey}&count=${1}`;
+
 function getWeather() {
   const req = new XMLHttpRequest();
   req.onreadystatechange = function() {
@@ -18,6 +23,18 @@ function getTime() {
   let tijd = document.getElementById('Tijd');
   let date = new Date();
   tijd.innerHTML = date;
+}
+
+
+// Get photos from Unsplash API
+async function getPhotos() {
+  try {
+    const response = await fetch(apiUrl);
+    image = await response.json();
+    document.getElementById("templatemo_header").style.backgroundImage = image;
+  } catch (error) {
+    // Catch Error Here
+  }
 }
 
 function loadJSON(callback) {

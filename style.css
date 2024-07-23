@@ -25,6 +25,10 @@ body {
   text-align: center;
 }
 
+#templatemo_header {
+  background: url(images/templatemo_header.jpg) no-repeat;
+}
+
 .content {
   display: flex;
   justify-content: center;
